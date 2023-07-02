@@ -1,0 +1,24 @@
+問１
+Switch3　理由：ブリッジプライオリティが最も低いから
+
+問２
+Switch１からルートブリッジのSwitch３への経路は２つあり
+１．Switch１→Switch３：１００
+２．Switch１→Switch２→Switch４→Switch３：１９＋１００＋１００＝２１９
+よって下側のF0/2がルートポート（RP）になる。
+
+Switch２からルートブリッジのSwitch３への経路は２つあり
+１．Switch２→Switch１→Switch３：１９＋１００＝１１９
+２．Switch２→Switch４→Switch３：１００＋１００＝２００
+よって左側のF0/1がルートポート（RP）になる。
+
+Switch４からからルートブリッジのSwitch３への経路は２つあり
+１．Switch４→Switch３：１００
+２．Switch４→Switch２→Switch１→Switch３：１００＋１９＋１００＝２１９
+よって、左側のE0/2がルートポート（RP）になる。
+
+ルートブリッジの全てのポートは指定ポート（DP）になるので、Switch３の上側E0/1と右側E0/2は指定ポート（DP）になる。
+また、ルートポート（RP）の対向ポートも指定ポート（DP）になるので、Switch１の右側F0/1は指定ポート（DP）になる。
+Switch２ーSwitch４の間に指定ポート（DP）がないので、２つのブリッジIDを比べてSwitch４のほうが小さいので、Switch４の上側E0/1が指定ポート（DP）になる。
+
+最後に何も与えられてないSwitch２の下側F0/2はブロッキングポート（BP）になる。
